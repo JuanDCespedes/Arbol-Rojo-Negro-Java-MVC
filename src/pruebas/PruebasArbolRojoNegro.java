@@ -2,7 +2,7 @@ package pruebas;
 
 import modelo.ArbolRojoNegro;
 
-/** Pruebas automatizadas sin JUnit y sin bibliotecas ajenas al proyecto. */
+
 public class PruebasArbolRojoNegro {
     private static int verificaciones = 0;
 

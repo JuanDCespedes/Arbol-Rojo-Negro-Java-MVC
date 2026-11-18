@@ -3,7 +3,7 @@ package controlador;
 import modelo.ArbolRojoNegro;
 import vista.VistaConsola;
 
-/** Conecta la Vista con las operaciones del Modelo. */
+
 public class ControladorArbol {
     private ArbolRojoNegro modelo;
     private final VistaConsola vista;

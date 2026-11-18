@@ -1,9 +1,6 @@
 package vista;
 
-/**
- * Vista: menú, mensajes y entrada básica de consola.
- * Sin Scanner, BufferedReader ni bibliotecas externas.
- */
+
 public class VistaConsola {
     public void bienvenida() {
         System.out.println("========================================");

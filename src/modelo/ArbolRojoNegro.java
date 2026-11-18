@@ -1,12 +1,6 @@
 package modelo;
 
-/**
- * Árbol rojo-negro clásico con centinela NIL negro compartido.
- * Búsqueda, inserción y eliminación: O(log n) en el peor caso.
- *
- * El modelo NO imprime nada, no pide datos y no conoce la vista.
- * No importa ninguna biblioteca externa ni colecciones del JDK.
- */
+
 public class ArbolRojoNegro {
     private final Nodo nil;
     private Nodo raiz;
@@ -54,7 +48,7 @@ public class ArbolRojoNegro {
         anotar("Árbol vaciado.");
     }
 
-    // ------------------ BÚSQUEDA ------------------
+
     private Nodo encontrar(int valor) {
         Nodo actual = raiz;
         while (actual != nil) {
@@ -70,7 +64,7 @@ public class ArbolRojoNegro {
         return encontrar(valor) != nil;
     }
 
-    // ------------------ ROTACIONES ------------------
+
     private void rotarIzquierda(Nodo x) {
         Nodo y = x.derecho;
         if (y == nil) {
@@ -115,7 +109,7 @@ public class ArbolRojoNegro {
         anotar("Rotación DERECHA alrededor de " + x.valor + "; sube " + y.valor + ".");
     }
 
-    // ------------------ INSERCIÓN ------------------
+
     public boolean insertar(int valor) {
         iniciarHistorial();
         Nodo padre = nil;
@@ -195,7 +189,7 @@ public class ArbolRojoNegro {
         raiz.rojo = false;
     }
 
-    // ------------------ ELIMINACIÓN ------------------
+
     private void trasplantar(Nodo viejo, Nodo nuevo) {
         if (viejo.padre == nil) {
             raiz = nuevo;
@@ -204,7 +198,7 @@ public class ArbolRojoNegro {
         } else {
             viejo.padre.derecho = nuevo;
         }
-        // También se asigna el padre al NIL: es necesario en el ajuste de borrado.
+
         nuevo.padre = viejo.padre;
     }
 
@@ -233,7 +227,7 @@ public class ArbolRojoNegro {
             x = z.izquierdo;
             trasplantar(z, z.izquierdo);
         } else {
-            y = minimo(z.derecho); // sucesor en el recorrido inorden
+            y = minimo(z.derecho);
             colorOriginalRojo = y.rojo;
             x = y.derecho;
             if (y.padre == z) {
@@ -326,7 +320,7 @@ public class ArbolRojoNegro {
         x.rojo = false;
     }
 
-    // ------------------ RECORRIDO INORDEN ------------------
+
     public String inOrden() {
         StringBuilder salida = new StringBuilder("[");
         recorrerInOrden(raiz, salida);
@@ -346,7 +340,7 @@ public class ArbolRojoNegro {
         recorrerInOrden(nodo.derecho, salida);
     }
 
-    // ------------------ DIBUJO POR CONSOLA ------------------
+
     public String dibujar() {
         if (raiz == nil) {
             return "(árbol vacío)";
@@ -375,7 +369,7 @@ public class ArbolRojoNegro {
         dibujarHijos(nodo, prefijo + continuacion, salida);
     }
 
-    // ------------------ VERIFICACIÓN DE LAS PROPIEDADES ------------------
+
     private static class Revision {
         final boolean valido;
         final int alturaNegra;
@@ -396,7 +390,7 @@ public class ArbolRojoNegro {
 
     private Revision revisarNodo(Nodo nodo, Nodo padreEsperado, long minimo, long maximo) {
         if (nodo == nil) {
-            return new Revision(true, 1, 0, ""); // NIL es negro y cuenta 1
+            return new Revision(true, 1, 0, "");
         }
         if (nodo == null || nodo.izquierdo == null || nodo.derecho == null) {
             return error("Hay referencias nulas en un nodo real.");
