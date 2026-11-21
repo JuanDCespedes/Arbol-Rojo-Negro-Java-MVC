@@ -1,6 +1,4 @@
-package pruebas;
-
-import modelo.ArbolRojoNegro;
+package modelo;
 
 
 public class PruebasArbolRojoNegro {

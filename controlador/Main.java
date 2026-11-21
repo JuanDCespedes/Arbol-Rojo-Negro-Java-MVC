@@ -1,4 +1,4 @@
-package app;
+package controlador;
 
 import controlador.ControladorArbol;
 import modelo.ArbolRojoNegro;
